@@ -31,11 +31,9 @@ function liftWeights(timeLeft) {
 
         if (timeLeft >= 2000) {
             timeLeft -= 2000;
-            setTimeout(() => resolve(timeLeft), 2000);
+            setTimeout(() => resolve('done working out'), 2000);
             console.log('done lifting weights');
-            console.log('done working out');
         } else {
-            console.log('you dont have enough time to run OnTreadmill');
             reject('you dont have enough time to liftWeights');
         }
 
@@ -47,7 +45,8 @@ function workout(totalTime) {
 	stretch(totalTime)
     .then((totalTime) => runOnTreadmill(totalTime))
     .then((totalTime) => liftWeights(totalTime))
-    .catch(msg => console.log(msg));
+    .then(msgSucces => console.log(msgSucces))
+    .catch(msgError => console.log(msgError));
 }
 
 // TESTS
