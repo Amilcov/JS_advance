@@ -1,0 +1,247 @@
+1.Ask for the Home Page
+   Request: 
+      method: GET
+      URL: /
+      Content-Type: none
+      Body: none
+
+    Response: 
+      Status Code: 200
+      Status: OK
+      Headers:
+          Content-Type: text/html
+      Body: HTML page with links to other pages 
+
+2.Ask for a page that doesn't exist
+  Request: 
+      method: GET
+      URL: /money
+      Content-Type: none
+      Body: none
+
+    Response: 
+      Status Code: 404
+      Status: Page not found
+      Headers:
+          Content-Type: text/html
+      Body: HTML page with links to other pages and  dispplay error message 404- Page Not Found
+
+3.Ask for the products list page
+  Request:
+      method: GET
+      URL: /products
+      Content-Type: none
+      Body: none
+
+    Response: 
+      Status Code: 200
+      Status: OK
+      Headers:
+          Content-Type: text/html
+      Body: HTML page with links to other pages and Product List with link associated with every products
+
+4. Ask for the product detail page
+   Request:
+      method: GET
+      URL: /products/1
+      Headers:
+        Content-Type: none
+      Body: none
+
+    Response: 
+      Status Code: 200
+      Status: OK
+      Headers:
+          Content-Type: text/html
+      Body: HTML page with links to other pages and Product Detail with requested productId that contain: description, price, categories of which belongs, reviews
+
+5.Ask for the create new product page
+   Request:
+      method: GET
+      URL: /products/new
+      Headers:
+        Content-Type: x-www-form-urlencoded
+      Body: none
+
+    Response: 
+      Status Code: 200
+      Status: OK
+      Headers:
+          Content-Type: text/html
+      Body: HTML page with links to other pages and product filds detail to fill: name, description, prices, categories
+     
+6.Submit a new product
+   Request:
+      method: POST
+      URL: /products/new
+      Headers:
+        Content-Type: x-www-form-urlencoded
+      Body: with  keys name, description, price, categories completed with desire value 
+            Example: name:        cupcake
+                     description: my cake to eat
+                     price:       25
+                     categories:  toy-games  
+                     categories: grocery
+             Atention: 1. key categories must be one that exists in  Categories resources 
+                       2. will be fill tag not name: 
+                          2.1 ex categoty: Toyes and Games but tag is toys-games
+                       3. values are case-sensitives
+                       4. if  the new added product is part of two categories than the key categories will appeared 2 times in the body of req
+
+                           
+7.Ask for the edit product page
+  Request:
+    method: GET
+    URL: /products/3
+    Headers:
+       Content-Type: none
+    Body: none
+        
+
+    Response: 
+      Status Code: 200
+      Status: OK
+      Headers:
+          Content-Type: text/html
+
+      Body: HTML page with links to other pages and product  with fields detail of asked product
+
+
+8.Submit an edit for an existing product
+
+  Request:
+    method: POST
+    URL: /products/3
+    Headers:
+       Content-Type: x-www-form-urlencoded
+
+    Body:
+       name:  cupcake vers 2
+       description: my cake to eat vers 2
+       price:       25
+       categories:  beauty
+      
+
+    Response: 
+      Status Code: 200
+      Status: OK
+      Headers:
+          Content-Type: text/html
+      Body: HTML page with links to other pages and new updated product with new value fields 
+    
+
+
+9. Submit a delete for an existing product
+  Request:
+  method: POST
+  URL: /products/3/delete
+  Headers:
+    Content-Type: none
+  Body: none
+
+  Response:
+    Status Code: 200
+    Status: OK
+    Headers:
+      Content-Type: text/html
+    Body: HTML page with links to other pages and list of products (without deleted product anymore)
+
+10. Submit a new review for a product
+
+Request:
+  method: POST
+  URL: /products/3/reviews
+  Headers:
+    Content-Type:  x-www-form-urlencoded
+  Body: comment: Best product
+        startRating: 5
+
+  Response:
+    Status Code: 200
+    Status: OK
+    Headers:
+      Content-Type: text/html
+    Body: HTML page with links to other pages and  detail of product , reviews included 
+
+
+11. Ask for the edit review page
+  Request:
+    method: GET
+    URL: reviews/1/edit
+    Headers:
+      Content-Type:  none
+    Body: none
+
+    Response:
+      Status Code: 200
+      Status: OK
+      Headers:
+        Content-Type: text/html
+      Body: HTML page with links to other pages and  detail of the review
+
+ 12. Submit an edit for an existing review    
+    Request:
+    method: POST
+    URL: reviews/1  (1= IdComment)
+    Headers:
+      Content-Type:  x-www-form-urlencoded
+    Body:  
+        comment: 2nd Best product
+        startRating: 2
+
+    Response:
+      Status Code: 200
+      Status: OK
+      Headers:
+        Content-Type: text/html
+      Body: HTML page with links to other pages and  product detail 
+
+
+13. Submit a delete for an existing review 
+  Request:
+    method: POST
+    URL: reviews/1/delete  (1= IdComment)
+    Headers:
+      Content-Type:  none
+    Body:  none
+
+  Response:
+    Status Code: 200
+    Status: OK
+    Headers:
+      Content-Type: text/html
+    Body: HTML page with links to other pages and  product detail      
+
+14.Ask for all the products in a particular category by tag of the category
+  Request:
+    method: GET
+    URL: caregories/furniture/products  (1= IdComment)
+    Headers:
+      Content-Type:  none
+    Body:  none
+
+  Response:
+    Status Code: 200
+    Status: OK
+    Headers:
+      Content-Type: text/html
+    Body: HTML page with links to other pages and  list of products from that category   
+
+
+  15. Ask for the best-selling product
+    Request:
+    method: GET
+    URL: products/best-selling
+    Headers:
+      Content-Type:  none
+    Body:  none
+
+    Response:
+      Status Code: 200
+      Status: OK
+      Headers:
+        Content-Type: text/html
+      Body: HTML page with links to other pages and  product detail  of best selling product  
+
+
+    
