@@ -41,6 +41,7 @@ function workout(totalTime) {
 	stretch(totalTime)
      .then(value => runOnTreadmill(value))
      .then(value => liftWeights(value))
+     .then(()=> console.log('done work out'))
      .catch(reason => console.log('You donn\'t have enought time to ', reason));
 }
 

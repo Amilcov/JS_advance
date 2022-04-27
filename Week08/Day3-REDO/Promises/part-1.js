@@ -70,6 +70,7 @@ function workout() {
    stretch()
    .then(runOnTreadmill)
    .then(liftWeights)
+   .then(()=> console.log('done workout'))
    .catch(reason => console.log('Error is: ', reason));
 }
 
