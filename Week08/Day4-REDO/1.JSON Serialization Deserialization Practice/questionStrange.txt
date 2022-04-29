@@ -1,1 +1,7 @@
 
+
+Question 1: 
+[in fis server.js in liniile: 15 && 26]
+
+De ce req.headers['Content-Type'] este undefinded
+si req.headers['content-type'] are valoare ('application/x-www-form-urlencoded' || 'application/json')
