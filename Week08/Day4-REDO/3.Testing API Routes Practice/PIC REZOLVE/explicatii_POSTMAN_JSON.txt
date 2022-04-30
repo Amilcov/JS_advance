@@ -1,0 +1,16 @@
+ In postMan pt a trimise  request uri JSON trebiue:
+
+
+  1. POST method
+      1.1.1.completat manual in TAB- ul headres:  Content-Type application /json
+      1.1.2. -  ales formatul raw :
+             -  completat manual in TAB- ul body:  Content-Type application /json 
+                {
+
+                  "message": "hello from Moon"
+                }
+                
+                
+                
+   2. Get method = analog 1.1.1
+   
