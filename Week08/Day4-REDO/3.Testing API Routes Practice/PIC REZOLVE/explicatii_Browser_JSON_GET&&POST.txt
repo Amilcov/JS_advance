@@ -1,0 +1,30 @@
+ In browser Chome  se introduce Adresa: http://localhost:5000/
+ 
+ GET
+     fetch('posts')
+     fetch('/posts').then(res => res.json())
+ 
+ 
+ POST
+  SOLUTION 2:  
+       (async function (){
+          const res = await fetch('posts');
+          const data = await res.json();
+
+          console.log(data);
+      })()
+
+
+   SOLUTION 1:
+      fetch('posts', {
+          method: 'POST',
+          headers: {
+                   'Content-Type': 'application/json'
+          },
+          body: JSON.serialized({
+             message: 'Hello from browser'
+          })
+      })
+
+
+                
