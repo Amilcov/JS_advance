@@ -1,0 +1,1 @@
+vezi readMe.txt parinte
